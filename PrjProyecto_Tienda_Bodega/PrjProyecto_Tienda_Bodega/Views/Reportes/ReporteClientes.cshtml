@@ -1,0 +1,17 @@
+﻿@using ReportViewerForMvc;
+@using Microsoft.Reporting.WebForms;
+
+@{
+	ViewBag.Title = "ReporteClientes";
+}
+
+<h2>Reporte de Clientes</h2>
+
+<div>
+	@Html.ReportViewer((ReportViewer)ViewBag.REPORTECLIENTE,
+						new { @style = "height:600px;width:1000px;" })
+</div>
+
+<p>¿Deseas Volver al menu?</p>
+<a href="http://localhost:61127/Menu.aspx">Regresar Al Menu</a>
+

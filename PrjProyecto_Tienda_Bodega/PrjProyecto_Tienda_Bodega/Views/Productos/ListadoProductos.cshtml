@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PrjProyecto_Tienda_Bodega.Models.Productos>
+
+@{
+    ViewBag.Title = "ListadoProductos";
+}
+
+<h2>Listado de los Productos</h2>
+
+<p>
+    @Html.ActionLink("Registrar nuevo producto", "InsertarProducto")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idProveedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioUnitario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idProveedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioUnitario)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "ActualizarProducto", new { id = item.idProducto }) 
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />
+<a href="http://localhost:61127/Menu.aspx">Regresar Al Menu</a>
+

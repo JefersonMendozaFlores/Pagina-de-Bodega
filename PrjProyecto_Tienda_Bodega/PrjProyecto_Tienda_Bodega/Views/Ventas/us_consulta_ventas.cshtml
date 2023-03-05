@@ -1,0 +1,98 @@
+﻿@model IEnumerable<PrjProyecto_Tienda_Bodega.Models.Ventas>
+
+@{
+    ViewBag.Title = "us_consulta_ventas";
+}
+
+<h2>Consultar Venta</h2>
+
+<!-- plantilla para vista -->
+@using (Html.BeginForm())
+{ 
+    <p>
+        ID de la Venta: <input type="text"
+                                   name="idVenta"
+                                   value="@ViewBag.IDVENTA" />
+        <br/>
+        <br/>
+        
+        <input type="submit"
+               value="Consultar"
+               class="btn btn-success"/>
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idVenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombresCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreVendedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaVenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioUnitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idVenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombresCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreVendedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaVenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioUnitario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total)
+        </td>
+    </tr>
+}
+
+</table>
+
+<a href="http://localhost:61127/Menu.aspx" >Regresar al Menu</a>
+

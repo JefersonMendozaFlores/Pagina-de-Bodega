@@ -1,0 +1,73 @@
+﻿@model PrjProyecto_Tienda_Bodega.Models.Clientes
+
+@{
+	ViewBag.Title = "ClienteInsertar";
+}
+
+<h2>Insertar nuevo Cliente</h2>
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+		<h4>Clientes</h4>
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.nombres, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.nombres, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.nombres, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.apellidos, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.apellidos, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.apellidos, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.fechaNacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.fechaNacimiento, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.fechaNacimiento, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(model => model.celular, htmlAttributes: new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.celular, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.celular, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="Create" class="btn btn-default" />
+			</div>
+		</div>
+	</div>
+}
+
+<p>¿Deseas Volver al menu?</p>
+<a href="http://localhost:61127/Menu.aspx">Regresar Al Menu</a>
+
+<br />
+<p>¿Desea ir al listado?</p>
+<div>
+	@Html.ActionLink("Regresar al listado", "ListadoClientes")
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<div class="alert alert-info">
+	@ViewBag.MENSAJE
+</div>
